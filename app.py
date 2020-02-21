@@ -9,23 +9,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configurações do Firebase
-
-import pyrebase
-
-firebase_config = {
-  "apiKey": os.getenv("FIREBASE_API_KEY"),
-  "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
-  "databaseURL": os.getenv("FIREBASE_DATABASE_URL"),
-  "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
-  "projectId": os.getenv("FIREBASE_PROJECT_ID"),
-  "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
-  "appId": os.getenv("FIREBASE_APP_ID"),
-  "measurementId": os.getenv("FIREBASE_MEASUREMENT_ID")
-}
-
-firebase = pyrebase.initialize_app(firebase_config)
-
 # Recursos da Api
 from resources.location import Location
 
@@ -43,7 +26,4 @@ api = Api(app)
 api.add_resource(Location, '/location')
 
 if __name__ == '__main__':
-    db = firebase.database()
-    data = { "name": "Mortimer 'Morty' Smith" }
-
-    app.run(debug=True)
+    app.run(debug=True, port=5000, host='192.168.0.12')
