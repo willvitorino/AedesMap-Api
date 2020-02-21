@@ -12,7 +12,7 @@ __firebase_config = {
   "projectId": os.getenv("FIREBASE_PROJECT_ID"),
   "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
   "appId": os.getenv("FIREBASE_APP_ID"),
-  "measurementId": os.getenv("FIREBASE_MEASUREMENT_ID")
+  "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID")
 }
 __firebase = pyrebase.initialize_app(__firebase_config)
 __auth = __firebase.auth()
