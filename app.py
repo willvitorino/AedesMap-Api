@@ -26,8 +26,12 @@ api = Api(app)
 api.add_resource(Home, '/')
 api.add_resource(Location, '/location')
 
-if __name__ == '__main__':
+def main():
+    port = int(os.environ.get("PORT", 5000))
     # Local
     # app.run(debug=True, port=5000, host='192.168.0.12')
     # Production
-    app.run()
+    app.run(host="0.0.0.0", port=port)
+
+if __name__ == '__main__':
+    main()
