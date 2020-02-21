@@ -11,6 +11,7 @@ load_dotenv()
 
 # Recursos da Api
 from resources.location import Location
+from resources.home import Home
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ app = Flask(__name__)
 
 CORS(app)
 api = Api(app)
-
+api.add_resource(Home, '/')
 api.add_resource(Location, '/location')
 
 if __name__ == '__main__':
